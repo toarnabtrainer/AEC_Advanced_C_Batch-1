@@ -2,18 +2,17 @@
 #include <conio.h>
 
 int main(void) {
-	int num1, num2, result;
+	int num1, num2;
 	int my_input(void);   // prototype declaration
 	int my_addition(int, int);
-	void my_display(int, int, int);
+	// void my_display(int, int, int);
 	void my_goodbye(void);
 	void my_welcome(void);
 	
 	my_welcome();
 	num1 = my_input();
 	num2 = my_input();
-	result = my_addition(num1, num2);
-	my_display(num1, num2, result);
+	my_addition(num1, num2);
 	my_goodbye();
 }
 
@@ -22,13 +21,13 @@ void my_goodbye(void) {
 	printf("\nGood bye and have a nice day...");
 }
 
-void my_display(int n1, int n2, int re) {
-	printf("\n\nSo the sum of %d and %d is %d...", n1, n2, re);
+void my_addition(int n1, int n2) {
+	printf("\n\nPerforming the addition operation...");
+	my_display(n1, n2, n1 + n2);
 }
 
-int my_addition(int n1, int n2) {
-	printf("\n\nPerforming the addition operation...");
-	return n1 + n2;
+void my_display(int n1, int n2, int re) {
+	printf("\n\nSo the sum of %d and %d is %d...", n1, n2, re);
 }
 
 int my_input(void) {
