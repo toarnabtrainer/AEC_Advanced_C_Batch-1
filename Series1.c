@@ -9,12 +9,22 @@ int main(void) {
 	scanf("%d", &n);
 	printf("\n\nForming the series...\n");
 	total = 0;
+	fact = 1;
+	for(i = 1; i <= n; i++) {
+		fact *= i;
+		total += fact;
+		printf("\nSo the current value of the total = %d and fact = %d...", total, fact);
+	}
+	
+	printf("\n\nSo the final total is %d...", total);
+	printf("\n\nEnd of the series...");
+}
+
+/*
 	for(i = 1; i <= n; i++) {
 		fact = 1;
 		for (j = 1; j <= i; j++) fact = fact * j;
 		total = total + fact;
 		printf("\nSo the current value of the total = %d and fact = %d...", total, fact);
 	}
-	printf("\n\nSo the final total is %d...", total);
-	printf("\n\nEnd of the series...");
-}
+*/
