@@ -81,20 +81,135 @@ void arr_initialize(void) {
 		printf("\n\nINITIALIZE Operation has been completed successfully...");
 	}
 }
+/*
+  Index ->   0   1   2   3   4   5   6   7   8   9 
+  Data  ->  34  45  23  17  46  99  21  76  ..  ..
+                     ^
+                     |
+                    99 
+  n = 8, loc = 2, item = 99
+  Source Location (7 to 2) -> Target Location (8 to 3)
+  Source Location (n-1 to loc) -> Target Location (n to loc+1)
+  i => Source Location
+  for i = (n-1) to loc step -1
+     arr[i+1] = arr[i] 
+  i => Target Location
+  for i = n to (loc+1) step -1
+     arr[i] = arr[i-1] 
+*/
 void arr_insert(void) {
+	int loc, item, i;
 	printf("\n\nArray INSERT Operation has been selected...");
+	if (n == maxloc) {
+		printf("\n\nO V E R F L O W !!!");
+		printf("\nNo Space for INSERT Operation...");
+	} else {
+		printf("\n\nPlease enter the location number: ");
+		scanf("%d", &loc);
+		printf("Please enter the item value to be inserted: ");
+		scanf("%d", &item);
+		printf("\nPerforming insertion of %d at location %d...", item, loc);
+		for (i = n; i >= (loc + 1); i--) {
+			arr[i] = arr[i - 1];
+		}
+		arr[loc] = item;
+		n++;
+		printf("\n\nINSERT Operation has been completed successfully...");
+	}
 }
+/*
+  Index ->   0   1   2   3   4   5   6   7   8   9 
+  Data  ->  34  45  23  17  46  99  21  76  ..  ..
+                     ^
+                     |
+                    item = ? 
+  n = 8, loc = 2, item = ???
+  Source Location (3 to 7) -> Target Location (2 to 6)
+  Source Location (loc+1 to n-1) -> Target Location (loc to n-2)
+  i => Source Location
+  for i = (loc+1) to n-1 step 1
+     arr[i-1] = arr[i] 
+  i => Target Location
+  for i = loc to (n-2) step 1
+     arr[i] = arr[i+1] 
+*/
 void arr_delete(void) {
+	int loc, item, i;
 	printf("\n\nArray DELETE Operation has been selected...");
+	if (n == 0) {
+		printf("\n\nU N D E R F L O W !!!");
+		printf("\nNo data for DELETE Operation...");
+	} else {
+		printf("\n\nPlease enter the location number: ");
+		scanf("%d", &loc);
+		item = arr[loc];
+		printf("\nPerforming deletion of %d at location %d...", item, loc);
+		for (i = (loc + 1); i <= (n - 1); i++) {
+			arr[i - 1] = arr[i];
+		}
+		n--;
+		printf("\n\nDELETE Operation has been completed successfully...");
+	}
 }
+/*
+BUBBLE_SORT_ALGORITHM ARR(1:N)
+for i = 1 to (n - 1)
+	for j = 1 to (n - i)
+		if (arr[j] > arr[j + 1])
+			swap a[j], a[j + 1]
+		end if
+	end for
+end for
+*/
 void arr_sort(void) {
+	int i, j, temp;
 	printf("\n\nArray SORT Operation has been selected...");
+	for (i = 1; i <= (n - 1); i++) {
+		for (j = 1; j <= (n - i); j++) {
+			if (arr[j - 1] > arr[j]) {
+				temp = arr[j - 1];
+				arr[j - 1] = arr[j];
+				arr[j] = temp;
+			}
+		}
+	}
+	printf("\n\nSORT Operation has been completed successfully...");
 }
 void arr_search(void) {
+	int i, item;
 	printf("\n\nArray SEARCH Operation has been selected...");
+	printf("\nPlease enter your search item: ");
+	scanf("%d", &item);
+	for (i = 0; i < n; i++) {
+		if (arr[i] == item) {
+			printf("\n\n%d has been found successfully at location %d...", item, i);
+			break;
+		}
+	}
+	if (i == n) {
+		printf("\n\nData item %d has not been found in the array...", item);
+	}
+	printf("\n\nSEARCH Operation has been completed successfully...");
 }
 void arr_update(void) {
+	int i, item, new_item;
 	printf("\n\nArray UPDATE Operation has been selected...");
+	printf("\nPlease enter your search item: ");
+	scanf("%d", &item);
+	printf("\nPlease enter your search item: ");
+	scanf("%d", &new_item);
+	for (i = 0; i < n; i++) {
+		if (arr[i] == item) {
+			printf("\n\n%d has been found successfully at location %d...", item, i);
+			arr[i] = new_item;
+			printf("\n\n%d has been used to update the content of the location %d...", new_item, i);
+			break;
+		}
+	}
+	if (i == n) {
+		printf("\n\nData item %d has not been found in the array...", item);
+	}
+	printf("\n\nUPDATE Operation has been completed successfully...");
 }
 void arr_display(void) {
 	int i;
