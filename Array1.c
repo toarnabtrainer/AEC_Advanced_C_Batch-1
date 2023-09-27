@@ -66,28 +66,53 @@ int arr_menu(void) {
 }
 
 void arr_initialize(void) {
-	printf("Array INITIALIZE Operation has been selected...");
+	int i;
+	printf("\n\nArray INITIALIZE Operation has been selected...");
+	printf("\nPlease enter the number of items (Less than 10): ");
+	scanf("%d", &n);
+	if (n > 10) {
+		printf("\nINVALID value has been provided...");
+	} else {
+		printf("\nNow enter %d number of data items...\n", n);
+		for(i = 0; i < n; i++) {
+			printf("Enter data for location number %d --> ", i);
+			scanf("%d", &arr[i]);
+		}
+		printf("\n\nINITIALIZE Operation has been completed successfully...");
+	}
 }
 void arr_insert(void) {
-	printf("Array INSERT Operation has been selected...");
+	printf("\n\nArray INSERT Operation has been selected...");
 }
 void arr_delete(void) {
-	printf("Array DELETE Operation has been selected...");
+	printf("\n\nArray DELETE Operation has been selected...");
 }
 void arr_sort(void) {
-	printf("Array SORT Operation has been selected...");
+	printf("\n\nArray SORT Operation has been selected...");
 }
 void arr_search(void) {
-	printf("Array SEARCH Operation has been selected...");
+	printf("\n\nArray SEARCH Operation has been selected...");
 }
 void arr_update(void) {
-	printf("Array UPDATE Operation has been selected...");
+	printf("\n\nArray UPDATE Operation has been selected...");
 }
 void arr_display(void) {
-	printf("Array DISPLAY Operation has been selected...");
+	int i;
+	printf("\n\nArray DISPLAY Operation has been selected...");
+	if (n == 0) {
+		printf("\nArray is EMPTY...");
+		printf("\nDISPLAY Operation can not be carried out...");
+	} else {
+		printf("\nDisplaying the current content of the array...\n");
+		for (i = 0; i < n; i++) {
+			printf("\nLocation Number -> %d and Content -> %d...", i, arr[i]);
+		}
+		printf("\n\nDISPLAY Operation has been completed successfully...");
+	}
 }
 void arr_quit(void) {
-	printf("Array QUIT Operation has been selected...");
+	printf("\n\nArray QUIT Operation has been selected...");
+	printf("\nEnd of the program...");
 }
 
 
