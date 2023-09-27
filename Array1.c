@@ -3,6 +3,16 @@
 int arr[10], n, maxloc;
 
 int main(void) {
+	void arr_initialize(void);
+	void arr_insert(void);
+	void arr_delete(void);
+	void arr_sort(void);
+	void arr_search(void);
+	void arr_update(void);
+	void arr_display(void);
+	void arr_quit(void);
+	int arr_menu(void);
+	
 	int choice = 0;
 	maxloc = 10;
 	while (choice != 8) {
@@ -54,3 +64,36 @@ int arr_menu(void) {
 	}
 	return ch;
 }
+
+void arr_initialize(void) {
+	printf("Array INITIALIZE Operation has been selected...");
+}
+void arr_insert(void) {
+	printf("Array INSERT Operation has been selected...");
+}
+void arr_delete(void) {
+	printf("Array DELETE Operation has been selected...");
+}
+void arr_sort(void) {
+	printf("Array SORT Operation has been selected...");
+}
+void arr_search(void) {
+	printf("Array SEARCH Operation has been selected...");
+}
+void arr_update(void) {
+	printf("Array UPDATE Operation has been selected...");
+}
+void arr_display(void) {
+	printf("Array DISPLAY Operation has been selected...");
+}
+void arr_quit(void) {
+	printf("Array QUIT Operation has been selected...");
+}
+
+
+
+
+
+
+
+
