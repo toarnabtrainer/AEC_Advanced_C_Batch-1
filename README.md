@@ -18,7 +18,7 @@ https://www.includehelp.com/cpp-tutorial/
 
 <hr>
 
-## Classwork Assignment Problem:
+## Class Assignment:
 
 <pre>
 Find out all possible three digit Triode Numbers.
